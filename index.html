@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+    rel="stylesheet">
+  <style>
+  :root {
+    --fg: #555555;
+    --bg: #e5e5e5;
+    --flexB: dodgerBlue;
+    --pagebg: white;
+  }
+
+  .darkMode {
+    --bg: #555555;
+    --fg: #e5e5e5;
+    --flexB: Crimson;
+    --pagebg: #222222;
+  }
+
+  * {
+    color: var(--fg);
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  body {
+    padding: 2%;
+    background-color: var(--pagebg);
+  }
+
+  .menu {
+    width:15%;
+    float:left;
+    text-align:center;
+  }
+
+  .name {
+    padding:10px;
+    text-align:center;
+    background-color:var(--bg);
+  }
+
+  .menu a {
+    width:100%;
+    padding:10px;
+    display:block;
+    margin-top:10px;
+    background-color:var(--bg);
+  }
+
+  button, button:active, button:focus {
+    float: right;
+    cursor: pointer;
+    color: var(--fg);
+    text-align:center;
+    border-radius: 4px;
+    transition-duration: 0.8s;
+    background-color: var(--bg);
+    border: solid var(--fg) 2px;
+  }
+
+  button:hover {
+    background-color: DarkOrange;
+  }
+
+  .main {
+    width: 85%;
+    float: left;
+    padding: 0 20px;
+  }
+
+  .right {
+    width:20%;
+    float:left;
+    padding:10px;
+    margin-top:10px;
+    text-align:center;
+    vertical-align: middle;
+    background-color:var(--bg);
+  }
+
+  .tablink {
+    font-weight: bold;
+    text-decoration: none;
+    border: solid var(--bg) 2px;
+  }
+
+  .floated {
+    float: right;
+    width: 150px;
+    height: 150px;
+    margin: 10px 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .helper {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .bottomBar {
+    padding: 10px;
+    overflow: auto;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--bg);
+  }
+
+  @media only screen and (max-width : 620px) {
+    /* For mobile phones: */
+    .menu, .main, .right {
+      width:100%;
+    }
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* Responsive layout - makes a one column layout instead of a two-column layout */
+  @media (max-width: 620px) {
+    .flex-container {
+      flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .flex-A {
+    background-color: var(--bg);
+    padding: 10px;
+    flex: 50%;
+  }
+
+  .flex-B {
+    background-color: var(--flexB);
+    padding: 10px;
+    flex: 50%;
+  }
+  </style>
+</head>
+<title>Ryan Hunt's Web Page</title>
+<body>
+<noscript>
+
+  <div class="name">
+    <h1>Ryan James Hunt</h1>
+  </div>
+
+  <div>
+    <h2>noscript detected</h2>
+    <p>
+      You appear to be blocking javascript (js)! This site uses js for menu
+      navigation, and cosmetic (dark mode) purposes. There's no tracking
+      outside of that from remote fonts (google fonts api).
+    </p>
+    <p>
+      Please return with js enabled to see the full site, or see links below.
+    </p>
+  </div>
+
+</noscript>
+
+<div id="scriptCheck" style="display:none;">
+
+  <div class="name">
+    <h1>Ryan James Hunt</h1>
+  </div>
+
+  <div style="overflow:auto;">
+
+    <div class="menu">
+      <a class="tablink" href="#" id="defaultTab"
+        onclick="openPage('About', this)">About</a>
+      <a class="tablink" href="#"
+        onclick="openPage('Research', this)">Research</a>
+      <a class="tablink" href="#"
+        onclick="openPage('Papers', this)">Papers</a>
+      <a class="tablink" href="#"
+        onclick="openPage('Contact', this)">Contact</a>
+      <a class="tablink" href="#"
+        onclick="openPage('Teaching', this)">Teaching</a>
+      <!--<a class="tablink" href="#"
+        onclick="openPage('Software', this)">Software</a>-->
+    </div>
+
+    <div class="main">
+
+      <div id="About" class="tabcontent">
+        <div>
+          <div class="floated">
+            <span class="helper"></span><img src="me.png" height=150 />
+          </div>
+          <p>
+            From 2019-2021, I worked full-time as a Software Engineer
+            for a control and automation company in the North West.
+          </p>
+          <p>
+            From 2015-2019, I earned a PhD in the Lancaster University
+            Department of Physics. I was then a member of the Condensed Matter
+            Theory group (as part of the Graphene NOWNANO CDT; and under the
+            supervision of <a href="https://www.lancaster.ac.uk/staff/drummonn/"
+            target="_blank">Neil Drummond</a>).
+            My thesis is <a href="https://eprints.lancs.ac.uk/id/eprint/138876/"
+            target="_blank">freely available</a>.
+          </p>
+        </div>
+      </div>
+
+      <div id="Research" class="tabcontent">
+        <div>
+        <p>
+        I will shortly be starting a new academic position... This site will be
+        updated in due time.
+        </p>
+        <p>
+          During my PhD, I used Quantum Monte Carlo (QMC) methods to
+          understand (i) excitations in materials from first-principles, and (ii)
+          the dynamics of charge-carrier complexes in semiconductors (at a model
+          level). To this end, I spent ~4 years as an active user and contributor
+          to the <a href="https://vallico.net/casinoqmc/"
+          target="_blank">CASINO QMC code</a>.
+        </p>
+        <p>
+          Details of my publications are available on this site, and at links
+          in the page footer. Details of awards I have received are available
+          elsewhere (see e.g. LinkedIn).
+        </p>
+        <p>Research data from my time as a PhD student are
+          <a href="http://www.research.lancs.ac.uk/portal/en/people/ryan-hunt(66b1fc8f-a821-4444-98cd-57148441feda)/datasets.html" target="_blank">
+          freely available</a>.
+        </p>
+        </div>
+      </div>
+
+      <div id="Contact" class="tabcontent">
+        <div>
+          <p>
+          Various social links are in the page footer.
+          </p>
+          <p>
+          Interested parties are welcome to ask me questions about my research,
+          or indeed to request data or copies of manuscripts from me. I will
+          acquiesce to most reasonable requests.
+          </p>
+        </div>
+      </div>
+
+      <div id="Papers" class="tabcontent">
+        <ol reversed>
+          <li>R. J. Hunt, B. Monserrat, V. Zólyomi and N. D. Drummond,
+            <i>Diffusion quantum Monte Carlo and GW study of the electronic
+            properties of monolayer and bulk hexagonal boron nitride</i>,
+            <a href="https://dx.doi.org/10.1103/PhysRevB.101.205115"
+               target="_blank">Phys. Rev. B 101, 205115</a> (2020).
+          </li>
+          <li>F. Vialla, M. Danovich, D. A. Ruiz-Tijerina, M. Massicotte,
+            P. Schmidt, T. Taniguchi, K. Watanabe, R. J. Hunt, M. Szyniszewski,
+            N. D. Drummond, T. G. Pedersen, V. I. Fal'ko and F. H. L. Koppens,
+            <i>Tuning of impurity-bound interlayer complexes in a van der Waals
+            heterobilayer</i>,
+            <a href="https://doi.org/10.1088/2053-1583/ab168d"
+               target="_blank">2D Mater. 6, 035032</a> (2019).
+          </li>
+          <li>D. M. Thomas, R. J. Hunt, N. D. Drummond and M. Hayne, <i>Binding
+            energies of excitonic complexes in type-II quantum rings from
+            diffusion quantum Monte Carlo calculations</i>,
+            <a href="https://dx.doi.org/10.1103/PhysRevB.99.115306"
+               target="_blank">Phys. Rev. B 99, 115306</a> (2019).
+          </li>
+          <li>R. J. Hunt, M. Szyniszewski, G. I. Prayogo, R. Maezono and
+            N. D. Drummond, <i>Quantum Monte Carlo calculations of energy gaps
+            from first principles</i>,
+            <a href="https://dx.doi.org/10.1103/PhysRevB.98.075122"
+               target="_blank">Phys. Rev. B 98, 075122</a> (2018).
+          </li>
+          <li>M. Danovich, D. A. Ruiz-Tijerina, R. J. Hunt, M. Szyniszewski,
+            N. D. Drummond and V. I. Fal'ko, <i>Localized interlayer complexes
+            in heterobilayer transition metal dichalcogenides</i>,
+            <a href="https://dx.doi.org/10.1103/PhysRevB.97.195452"
+               target="_blank">Phys. Rev. B 97, 195452</a> (2018).
+          </li>
+          <li>O. Witham, R. J. Hunt and N. D. Drummond, <i>Stability of trions
+            in coupled quantum wells modeled by two-dimensional bilayers</i>,
+            <a href="https://dx.doi.org/10.1103/PhysRevB.97.075424"
+               target="_blank">Phys. Rev. B 97, 075424</a> (2018).
+          </li>
+          <li>E. Mostaani, M. Szyniszewski, C. H. Price, R. Maezono,
+            M. Danovich, R. J. Hunt, N. D. Drummond and V. I. Fal'ko,
+            <i>Diffusion quantum Monte Carlo study of excitonic complexes in
+            two-dimensional transition-metal dichalcogenides</i>,
+            <a href="https://dx.doi.org/10.1103/PhysRevB.96.075431"
+               target="_blank">Phys. Rev. B 96, 075431</a> (2017).
+          </li>
+        </ol>
+      </div>
+
+      <div id="Teaching" class="tabcontent">
+        <div>
+          <p>
+          I've been involved in teaching situations for several years now.
+          </p>
+          <ul>
+          <li>Since 2019 I have been a UKA Leader in Running Fitness.</li>
+          <li>
+          From 2015-2019 I was a GTA on numerous undergraduate
+          physics courses spanning a range of sub-disciplines at Lancaster
+          University.
+          </li>
+          <li>From 2017-2019 I was a teaching assistant for the
+          "Two-Dimensional Materials From a Solid State Physics Perspective"
+          graduate-level course at UoM.
+          </li>
+          <li>From 2015-2019 I was a STEM Ambassador.</li>
+          <li>In 2017 I delivered lectures on Quantum Monte Carlo methods at
+            the Japan CASINO tutorial workshop.</li>
+          <li>In 2012 I was a Peer Mentor at the University of Manchester.</li>
+          </ul>
+        </div>
+      </div>
+<!--
+      <div id="Software" class="tabcontent">
+        <div>
+          <p>
+            To do my job, I need to use software built by others. A list of
+            software that I like by category is as follows:
+          </p>
+          <div class="flex-container">
+            <div class="flex-A"><b>OS</b><br>Debian, Arch GNU/Linux</div>
+            <div class="flex-B"><b>WM</b><br>i3[-gaps], Rofi</div>
+            <div class="flex-A"><b>Shell</b><br>Ba[sh]</div>
+          </div>
+          <div class="flex-container">
+            <div class="flex-B"><b>Terminal</b><br>Alacritty, tmux</div>
+            <div class="flex-A"><b>Plotting</b><br>Xmgrace, GNUplot, Matplotlib</div>
+            <div class="flex-B"><b>Typesetting</b><br>TeX Live, latexmk</div>
+          </div>
+          <div class="flex-container">
+            <div class="flex-A"><b>QMC</b><br>CASINO</div>
+            <div class="flex-B"><b>DFT</b><br>CASTEP, QuantumESPRESSO</div>
+            <div class="flex-A"><b>PDFs</b><br>Zathura, Briss, Shrinkpdf</div>
+          </div>
+          <div class="flex-container">
+            <div class="flex-B"><b>Graphics</b><br>Ipe, Inkscape, Imagemagick</div>
+            <div class="flex-A"><b>RSS</b><br>Newsboat</div>
+            <div class="flex-B"><b>Ref. Mgmt.</b><br>Mendeley, ResearcherApp</div>
+          </div>
+          <div class="flex-container">
+            <div class="flex-A"><b>Misc</b> vim, makefile, rsync, rclone, nvm, miniconda, keepassxc, GNU coreutils, &lt;insert salad of shell utils&gt;</div>
+          </div>
+          <p>
+          I am a fan of <i>simple</i> software and
+          practices. The programs I tend to prefer largely follow the
+          <a href="https://en.wikipedia.org/wiki/Unix_philosophy">
+          Unix philosophy</a>.
+          </p>
+          <p>
+          Most of the academic software I've written has been in Fortran90 and
+          C++. Day-to-day data management and handling is all shell scripts. I
+          will occasionally do prototyping in Python.
+          </p>
+        </div>
+      </div>
+-->
+    </div>
+
+  </div>
+
+</div> <!-- script check -->
+
+<div class="bottomBar">
+  <a href="mailto:rhunt04@gmail.com" target="_blank"
+     style="text-decoration: none;">
+    📧</a> |
+  <a href="https://scholar.google.co.uk/citations?user=iUrf_UsAAAAJ&hl=en"
+     target="_blank">
+    <img src="https://scholar.google.co.uk/favicon.ico"
+         height="20"
+         style="vertical-align: middle;"></a> |
+  <a href="https://orcid.org/0000-0003-2321-846X" target="_blank">
+    <img src="https://orcid.org/favicon.ico"
+         height="20"
+         style="vertical-align: middle;"></a> |
+  <a href="http://arxiv.org/a/hunt_r_2" target="_blank">
+    <img src="https://arxiv.org/favicon.ico"
+         height="20"
+         style="vertical-align: middle;"></a> |
+  <a href="http://github.com/rhunt04" target="_blank">
+    <img src="https://github.com/favicon.ico"
+         height="20"
+         style="vertical-align: middle;"></a> |
+  <a href="https://www.linkedin.com/in/ryan-hunt-9b3767132" target="_blank">
+    <img src="https://linkedin.com/favicon.ico"
+         height="20"
+         style="vertical-align: middle;"></a> |
+  <a href="https://www.strava.com/athletes/34198263" target="_blank">
+    <img src="https://strava.com/favicon.ico"
+    height="20"
+    style="vertical-align: middle;"></a>
+
+  <button id="darkModeButton" onclick="toggleDark()"
+          style="display:none;">💡 Mode</button>
+
+</div>
+</body>
+
+<script>
+
+// JS for opening the other pages.
+function openPage(pageName, element, color = 'var(--bg)') {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.border = "solid var(--bg) 2px";
+  }
+  document.getElementById(pageName).style.display = "flex";
+  element.style.border = "solid var(--fg) 2px";
+}
+
+// Open the default.
+document.getElementById("defaultTab").click();
+document.getElementById("darkModeButton").click();
+document.getElementById("scriptCheck").style.display = "block";
+document.getElementById("darkModeButton").style.display = "block";
+
+function toggleDark() {
+  document.body.classList.toggle("darkMode");
+}
+</script>
+
+</html>
